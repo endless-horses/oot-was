@@ -1,4 +1,4 @@
-package com.endlesshorses.oot.domain;
+package com.endlesshorses.oot.custom.font;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,16 +7,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Color {
+public class FontEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true, nullable = false)
     private String name;
     @Column(nullable = false)
-    private Long red;
+    private Long price;
     @Column(nullable = false)
-    private Long green;
-    @Column(nullable = false)
-    private Long blue;
+    private String imageUrl;
 }

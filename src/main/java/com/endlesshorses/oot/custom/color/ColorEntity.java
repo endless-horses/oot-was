@@ -1,4 +1,4 @@
-package com.endlesshorses.oot.domain;
+package com.endlesshorses.oot.custom.color;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,16 +7,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Accessory {
+public class ColorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true, nullable = false)
     private String name;
     @Column(nullable = false)
-    private Long price;
+    private Long red;
     @Column(nullable = false)
-    private String imageUrl;
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String explanation;
+    private Long green;
+    @Column(nullable = false)
+    private Long blue;
 }
