@@ -1,4 +1,4 @@
-package com.endlesshorses.oot.custom.accessory;
+package com.endlesshorses.oot.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class AccessoryEntity {
+public class Font {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,6 +17,4 @@ public class AccessoryEntity {
     private Long price;
     @Column(nullable = false)
     private String imageUrl;
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String explanation;
 }
