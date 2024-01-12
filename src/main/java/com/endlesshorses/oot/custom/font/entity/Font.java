@@ -1,8 +1,12 @@
 package com.endlesshorses.oot.custom.font.entity;
 
+import com.endlesshorses.oot.custom.result.entity.Result;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,4 +21,8 @@ public class Font {
 	private Long price;
 	@Column(nullable = false)
 	private String imageUrl;
+
+	@OneToMany(mappedBy = "font")
+	private List<Result> results = new ArrayList<>();
+
 }
