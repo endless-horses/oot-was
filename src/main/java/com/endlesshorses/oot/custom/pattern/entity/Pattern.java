@@ -14,6 +14,7 @@ import java.util.List;
 public class Pattern {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JoinColumn(name = "PATTERN_ID")
 	private Long id;
 	@Column(unique = true, nullable = false)
 	private String name;

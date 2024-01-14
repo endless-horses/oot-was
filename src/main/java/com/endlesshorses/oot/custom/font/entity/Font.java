@@ -14,6 +14,7 @@ import java.util.List;
 public class Font {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="FONT_ID")
 	private Long id;
 	@Column(unique = true, nullable = false)
 	private String name;
@@ -22,7 +23,7 @@ public class Font {
 	@Column(nullable = false)
 	private String imageUrl;
 
-	@OneToMany(mappedBy = "font")
+	@OneToMany(mappedBy = "font") //읽기만 가능
 	private List<Result> results = new ArrayList<>();
 
 }

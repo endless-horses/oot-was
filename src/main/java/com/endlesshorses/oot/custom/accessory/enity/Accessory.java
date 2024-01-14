@@ -1,6 +1,7 @@
 package com.endlesshorses.oot.custom.accessory.enity;
 
 import com.endlesshorses.oot.custom.result.entity.Result;
+import com.endlesshorses.oot.custom.resultAccessory.entity.ResultAccessory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,6 @@ public class Accessory {
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String explanation;
 
-	@ManyToMany(mappedBy = "accessory")
-	private List<Result> results = new ArrayList<>();
-
+	@OneToMany(mappedBy = "accessory")
+	private List<ResultAccessory> resultAccessories = new ArrayList<>();
 }
