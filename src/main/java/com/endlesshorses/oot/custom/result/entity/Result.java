@@ -34,7 +34,7 @@ public class Result {
 	private Font font;
 
 	@ManyToOne
-	@JoinColumn(name = "COLOR_ID", nullable = false)
+	@JoinColumn(name = "FONT_COLOR_ID", nullable = false)
 	private Color color;
 
 	@OneToMany(mappedBy ="result")
