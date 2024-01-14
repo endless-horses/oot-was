@@ -1,8 +1,13 @@
 package com.endlesshorses.oot.custom.accessory.enity;
 
+import com.endlesshorses.oot.custom.result.entity.Result;
+import com.endlesshorses.oot.custom.resultAccessory.entity.ResultAccessory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +24,7 @@ public class Accessory {
 	private String imageUrl;
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String explanation;
+
+	@OneToMany(mappedBy = "accessory")
+	private List<ResultAccessory> resultAccessories = new ArrayList<>();
 }

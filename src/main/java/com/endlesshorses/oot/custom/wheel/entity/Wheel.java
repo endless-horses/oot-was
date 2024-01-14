@@ -1,8 +1,12 @@
 package com.endlesshorses.oot.custom.wheel.entity;
 
+import com.endlesshorses.oot.custom.result.entity.Result;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +23,8 @@ public class Wheel {
 	private String imageUrl;
 	@Column(nullable = false)
 	private String explanation;
+
+	@OneToMany(mappedBy = "wheel")
+	private List<Result> results = new ArrayList<>();
+
 }
