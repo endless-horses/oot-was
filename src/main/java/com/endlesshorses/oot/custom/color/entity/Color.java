@@ -14,7 +14,6 @@ import java.util.List;
 public class Color {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="COLOR_ID")
 	private Long id;
 	@Column(unique = true, nullable = false)
 	private String name;
