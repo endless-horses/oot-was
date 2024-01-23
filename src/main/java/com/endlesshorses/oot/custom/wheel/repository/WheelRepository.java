@@ -7,6 +7,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface WheelRepository extends JpaRepository<Wheel, Long> {
-    @Override
-    List<Wheel> findAll();
 }
