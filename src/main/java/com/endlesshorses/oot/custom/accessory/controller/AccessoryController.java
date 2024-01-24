@@ -27,9 +27,9 @@ public class AccessoryController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "액세서리 목록 조회 성공")
     })
-    public ResponseEntity<?> list() {
+    public ResponseEntity<List<AccessoryListResponseDto>> list() {
         List<AccessoryListResponseDto> accessoryList = accessoryService.list();
-        
+
         return ResponseEntity.ok().body(accessoryList);
     }
 }
