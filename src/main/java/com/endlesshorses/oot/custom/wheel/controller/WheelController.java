@@ -26,7 +26,7 @@ public class WheelController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "휠 모양 목록 조회 성공"),
     })
-    public ResponseEntity<?> list() {
+    public ResponseEntity<List<WheelListResponseDto>> list() {
         List<WheelListResponseDto> wheelList = wheelService.list();
 
         return ResponseEntity.ok().body(wheelList);
