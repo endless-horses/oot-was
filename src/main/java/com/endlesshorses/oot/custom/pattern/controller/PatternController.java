@@ -22,7 +22,7 @@ public class PatternController {
 
 	@Operation(summary = "패턴 목록 조회 메서드", description = "클라이언트가 요청한 패턴 정보 목록을 조회하기 위한 메서드")
 
-	@GetMapping()
+	@GetMapping
 	@ApiResponses({
 			@ApiResponse(responseCode = "200", description = "패턴 목록 조회 성공"),
 	})

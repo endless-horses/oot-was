@@ -2,8 +2,10 @@ package com.endlesshorses.oot.custom.pattern.dto;
 
 import com.endlesshorses.oot.custom.pattern.entity.Pattern;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @NoArgsConstructor
 public class PatternListResponseDto {
 	private String name;

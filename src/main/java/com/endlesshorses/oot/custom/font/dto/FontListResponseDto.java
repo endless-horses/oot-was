@@ -2,7 +2,11 @@ package com.endlesshorses.oot.custom.font.dto;
 
 import com.endlesshorses.oot.custom.font.entity.Font;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 public class FontListResponseDto {
 	private String name;
 	private Long price;

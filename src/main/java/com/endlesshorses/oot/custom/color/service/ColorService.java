@@ -4,6 +4,7 @@ import com.endlesshorses.oot.custom.color.dto.ColorListResponseDto;
 import com.endlesshorses.oot.custom.color.repository.ColorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +14,8 @@ import java.util.stream.Collectors;
 public class ColorService {
 	private final ColorRepository colorRepository;
 
-	public List<ColorListResponseDto> list(){
+	@Transactional(readOnly = true)
+	public List<ColorListResponseDto> list() {
 		return colorRepository.findAll().stream()
 				.map(ColorListResponseDto::new)
 				.collect(Collectors.toList());
