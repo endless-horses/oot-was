@@ -1,9 +1,12 @@
 package com.endlesshorses.oot.custom.color.dto;
 
 import com.endlesshorses.oot.custom.color.entity.Color;
-import com.endlesshorses.oot.custom.wheel.entity.Wheel;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 public class ColorListResponseDto {
 	private String name;
 	private String rgb;
