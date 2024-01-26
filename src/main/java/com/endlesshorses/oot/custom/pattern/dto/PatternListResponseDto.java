@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class PatternListResponseDto {
+	private Long id;
 	private String name;
 	private Long price;
 	private String imageUrl;
@@ -15,6 +16,7 @@ public class PatternListResponseDto {
 
 	@Builder
 	public PatternListResponseDto(Pattern pattern) {
+		this.id = pattern.getId();
 		this.name = pattern.getName();
 		this.price = pattern.getPrice();
 		this.imageUrl = pattern.getImageUrl();
