@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Font", description = "폰트 관련 API")
-@RequestMapping("/fonts")
+@RequestMapping("api/fonts")
 public class FontController {
 	private final FontService fontService;
 
