@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Accessory", description = "액세서리 관련 API")
-@RequestMapping("api/accessories")
+@RequestMapping("/api/accessories")
 public class AccessoryController {
 	private final AccessoryService accessoryService;
 

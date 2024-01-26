@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Wheel", description = "휠 모양 관련 API")
-@RequestMapping("api/wheels")
+@RequestMapping("/api/wheels")
 public class WheelController {
 	private final WheelService wheelService;
 
