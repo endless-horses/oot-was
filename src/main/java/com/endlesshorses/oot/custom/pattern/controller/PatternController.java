@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Pattern", description = "패턴 관련 API")
-@RequestMapping("/patterns")
+@RequestMapping("/api/patterns")
 public class PatternController {
 	private final PatternService patternService;
 
