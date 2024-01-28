@@ -16,12 +16,13 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
+@RequiredArgsConstructor
 public class CorsFilter implements Filter {
-    private static final List<String> allowedOrigins = Arrays.asList("http://localhost:3000");
-    private Object Ordered;
+    private final CorsConfig corsConfig;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -40,7 +41,9 @@ public class CorsFilter implements Filter {
 
         String origin = request.getHeader("Origin");
 
-        if (allowedOrigins.contains(origin)) {
+        System.out.println(corsConfig.getAllowedOrigins());
+
+        if (corsConfig.getAllowedOrigins().contains(origin)) {
             response.setHeader("Access-Control-Allow-Origin", origin);
             response.setHeader("Access-Control-Allow-Credentials", "true");
             response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
