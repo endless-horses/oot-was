@@ -12,10 +12,13 @@ public class ColorListResponseDto {
 	private String name;
 	private String rgb;
 
+	private String imageUrl;
+
 	@Builder
 	public ColorListResponseDto(Color color) {
 		this.id = color.getId();
 		this.name = color.getName();
 		this.rgb = color.getRgb();
+		this.imageUrl = color.getImageUrl();
 	}
 }
