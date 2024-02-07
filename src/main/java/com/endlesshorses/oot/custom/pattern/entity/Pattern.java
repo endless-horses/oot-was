@@ -26,4 +26,5 @@ public class Pattern {
 
 	@OneToMany(mappedBy = "pattern")
 	private List<Result> results = new ArrayList<>();
+
 }
