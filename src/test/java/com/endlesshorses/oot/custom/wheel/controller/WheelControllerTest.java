@@ -13,9 +13,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.MvcResult;
 
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,6 +39,12 @@ public class WheelControllerTest {
     @BeforeEach
     public void setUp() {
         Wheel wheel = new Wheel();
+        wheel.setId(1L);
+        wheel.setName("스포크 휠");
+        wheel.setPrice(10000L);
+        wheel.setImageUrl("image_url");
+        wheel.setExplanation("설명~");
+
         WheelListResponseDto wheelDto = new WheelListResponseDto(wheel);
 
         wheelList = Arrays.asList(wheelDto);
@@ -44,9 +54,18 @@ public class WheelControllerTest {
 
     @Test
     public void list() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/wheels")
+        MvcResult mvcResult = mockMvc.perform(get("/api/wheels")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(new ObjectMapper().writeValueAsString(wheelList)));
+                .andExpect(status().isOk())
+                .andExpect(content().json(new ObjectMapper().writeValueAsString(wheelList)))
+                .andExpect(jsonPath("$[0].id").value(wheelList.get(0).getId()))
+                .andExpect(jsonPath("$[0].name").value(wheelList.get(0).getName()))
+                .andExpect(jsonPath("$[0].price").value(wheelList.get(0).getPrice()))
+                .andExpect(jsonPath("$[0].imageUrl").value(wheelList.get(0).getImageUrl()))
+                .andExpect(jsonPath("$[0].explanation").value(wheelList.get(0).getExplanation()))
+                .andReturn();
+
+        String responseContent = mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8);
+        System.out.println(responseContent);
     }
 }
