@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "cors")
 public class CorsConfig {
-    private List<String> allowedOrigins = new ArrayList<>();
+    private List<String> allowedOrigins;
 
     public List<String> getAllowedOrigins() {
         return allowedOrigins;
