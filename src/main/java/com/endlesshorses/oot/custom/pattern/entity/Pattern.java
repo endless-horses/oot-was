@@ -2,14 +2,17 @@ package com.endlesshorses.oot.custom.pattern.entity;
 
 import com.endlesshorses.oot.custom.result.entity.Result;
 import jakarta.persistence.*;
+import jdk.jshell.Snippet;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Pattern {
 	@Id
@@ -26,4 +29,5 @@ public class Pattern {
 
 	@OneToMany(mappedBy = "pattern")
 	private List<Result> results = new ArrayList<>();
+
 }
