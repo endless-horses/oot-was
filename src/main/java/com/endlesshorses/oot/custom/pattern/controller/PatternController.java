@@ -29,4 +29,5 @@ public class PatternController {
 	public List<PatternListResponseDto> findAll() {
 		return patternService.list();
 	}
+
 }

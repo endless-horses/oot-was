@@ -4,6 +4,7 @@ import com.endlesshorses.oot.custom.pattern.entity.Pattern;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @NoArgsConstructor
@@ -22,4 +23,5 @@ public class PatternListResponseDto {
 		this.imageUrl = pattern.getImageUrl();
 		this.explanation = pattern.getExplanation();
 	}
+
 }
