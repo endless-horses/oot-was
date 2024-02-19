@@ -38,19 +38,28 @@ public class WheelControllerTest {
     // 테스트를 위한 초기 설정
     @BeforeEach
     public void setUp() {
-        Wheel wheel = new Wheel();
-        wheel.setId(1L);
-        wheel.setName("스포크 휠");
-        wheel.setPrice(10000L);
-        wheel.setImageUrl("image_url");
-        wheel.setExplanation("설명~");
+        Wheel wheel1 = new Wheel();
+        wheel1.setId(1L);
+        wheel1.setName("스포크 휠");
+        wheel1.setPrice(10000L);
+        wheel1.setImageUrl("image_url_1");
+        wheel1.setExplanation("설명1~");
 
-        WheelListResponseDto wheelDto = new WheelListResponseDto(wheel);
+        Wheel wheel2 = new Wheel();
+        wheel2.setId(2L);
+        wheel2.setName("알루미늄 휠");
+        wheel2.setPrice(20000L);
+        wheel2.setImageUrl("image_url_2");
+        wheel2.setExplanation("설명2~");
 
-        wheelList = Arrays.asList(wheelDto);
+        WheelListResponseDto wheelDto1 = new WheelListResponseDto(wheel1);
+        WheelListResponseDto wheelDto2 = new WheelListResponseDto(wheel2);
+
+        wheelList = Arrays.asList(wheelDto1, wheelDto2);
 
         Mockito.when(wheelService.list()).thenReturn(wheelList);
     }
+
 
     @Test
     public void list() throws Exception {
@@ -63,9 +72,11 @@ public class WheelControllerTest {
                 .andExpect(jsonPath("$[0].price").value(wheelList.get(0).getPrice()))
                 .andExpect(jsonPath("$[0].imageUrl").value(wheelList.get(0).getImageUrl()))
                 .andExpect(jsonPath("$[0].explanation").value(wheelList.get(0).getExplanation()))
+                .andExpect(jsonPath("$[1].id").value(wheelList.get(1).getId()))
+                .andExpect(jsonPath("$[1].name").value(wheelList.get(1).getName()))
+                .andExpect(jsonPath("$[1].price").value(wheelList.get(1).getPrice()))
+                .andExpect(jsonPath("$[1].imageUrl").value(wheelList.get(1).getImageUrl()))
+                .andExpect(jsonPath("$[1].explanation").value(wheelList.get(1).getExplanation()))
                 .andReturn();
-
-        String responseContent = mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8);
-        System.out.println(responseContent);
     }
 }
