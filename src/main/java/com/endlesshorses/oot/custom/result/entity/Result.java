@@ -3,7 +3,6 @@ package com.endlesshorses.oot.custom.result.entity;
 import com.endlesshorses.oot.custom.color.entity.Color;
 import com.endlesshorses.oot.custom.font.entity.Font;
 import com.endlesshorses.oot.custom.pattern.entity.Pattern;
-import com.endlesshorses.oot.custom.resultAccessory.entity.ResultAccessory;
 import com.endlesshorses.oot.custom.wheel.entity.Wheel;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,8 +36,6 @@ public class Result {
 	@JoinColumn(name = "FONT_COLOR_ID", nullable = false)
 	private Color color;
 
-	@OneToMany(mappedBy ="result")
-	private List<ResultAccessory>ResultAccessories = new ArrayList<>();
 
 	@Column(nullable = false)
 	@CreatedDate
