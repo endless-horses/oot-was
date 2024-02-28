@@ -14,16 +14,13 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Color {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(unique = true, nullable = false)
-	private String name;
-	@Column(nullable = false)
-	private String rgb;
-	@Column(nullable = false)
-	private String imageUrl;
-
-	@OneToMany(mappedBy = "color") //읽기만 가능
-	private List<Result> results = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true, nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private String rgb;
+    @Column(nullable = false)
+    private String imageUrl;
 }

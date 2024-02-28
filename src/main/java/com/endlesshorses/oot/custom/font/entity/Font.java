@@ -14,17 +14,13 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Font {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(unique = true, nullable = false)
-	private String name;
-	@Column(nullable = false)
-	private Long price;
-	@Column(nullable = false)
-	private String imageUrl;
-
-	@OneToMany(mappedBy = "font") //읽기만 가능
-	private List<Result> results = new ArrayList<>();
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true, nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private Long price;
+    @Column(nullable = false)
+    private String imageUrl;
 }
