@@ -26,7 +26,7 @@ public class Wheel {
     @Column(nullable = false)
     private String explanation;
 
-    @OneToMany(mappedBy = "wheel")
-    private List<Result> results = new ArrayList<>();
+//    @OneToMany(mappedBy = "wheel")
+//    private List<Result> results = new ArrayList<>();
 
 }
