@@ -1,14 +1,11 @@
 package com.endlesshorses.oot.custom.result.service;
 
-import com.endlesshorses.oot.custom.pattern.dto.PatternListResponseDto;
 import com.endlesshorses.oot.custom.result.dto.ResultResponseDTO;
-import com.endlesshorses.oot.custom.result.entity.Result;
 import com.endlesshorses.oot.custom.result.repository.ResultRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,7 +13,7 @@ import java.util.stream.Collectors;
 public class ResultService {
     private final ResultRepository resultRepository;
 
-    public ResultResponseDTO findById(String id) {
+    public ResultResponseDTO read(String id) {
         return resultRepository.findById(id)
                 .map(ResultResponseDTO::new)
                 .orElseThrow(() -> new IllegalArgumentException("해당 id의 결과가 없습니다. id: " + id));

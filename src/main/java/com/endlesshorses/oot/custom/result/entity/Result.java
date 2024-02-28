@@ -6,21 +6,23 @@ import com.endlesshorses.oot.custom.font.entity.Font;
 import com.endlesshorses.oot.custom.pattern.entity.Pattern;
 import com.endlesshorses.oot.custom.wheel.entity.Wheel;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.cglib.core.KeyFactory;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Result {
 
     @Id
-    @Column(columnDefinition = "CHAR(36)")
     private String id;
 
     @ManyToOne
@@ -47,4 +49,14 @@ public class Result {
     @CreatedDate
     private LocalDateTime createdAt;
 
+    @Builder
+    public Result(String id, Pattern pattern, Wheel wheel, Font font, Color color, Accessory accessory) {
+        this.id = id;
+        this.pattern = pattern;
+        this.wheel = wheel;
+        this.font = font;
+        this.color = color;
+        this.accessory = accessory;
+        this.createdAt = LocalDateTime.now();
+    }
 }

@@ -1,8 +1,6 @@
 package com.endlesshorses.oot.custom.result.controller;
 
-import com.endlesshorses.oot.custom.pattern.dto.PatternListResponseDto;
 import com.endlesshorses.oot.custom.result.dto.ResultResponseDTO;
-import com.endlesshorses.oot.custom.result.entity.Result;
 import com.endlesshorses.oot.custom.result.service.ResultService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -13,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,15 +29,15 @@ public class ResultController {
             @ApiResponse(responseCode = "500", description = "서버 내부 오류"),
     })
 
-    public ResponseEntity<ResultResponseDTO> findResult(@PathVariable String id) {
-        return ResponseEntity.ok(resultService.findById(id));
+    public ResponseEntity<ResultResponseDTO> read(@PathVariable String id) {
+        return ResponseEntity.ok(resultService.read(id));
     }
 
     @GetMapping
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "결과물 목록 조회 성공"),
     })
-    public List<ResultResponseDTO> findAll() {
+    public List<ResultResponseDTO> read() {
         return resultService.list();
     }
 }
