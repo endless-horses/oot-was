@@ -23,7 +23,4 @@ public class Color {
     private String rgb;
     @Column(nullable = false)
     private String imageUrl;
-
-//	@OneToMany(mappedBy = "color") //읽기만 가능
-//	private List<Result> results = new ArrayList<>();
 }

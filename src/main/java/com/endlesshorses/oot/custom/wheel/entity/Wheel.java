@@ -25,8 +25,4 @@ public class Wheel {
     private String imageUrl;
     @Column(nullable = false)
     private String explanation;
-
-//    @OneToMany(mappedBy = "wheel")
-//    private List<Result> results = new ArrayList<>();
-
 }

@@ -26,8 +26,4 @@ public class Pattern {
     private String imageUrl;
     @Column(nullable = false)
     private String explanation;
-
-//	@OneToMany(mappedBy = "pattern")
-//	private List<Result> results = new ArrayList<>();
-
 }

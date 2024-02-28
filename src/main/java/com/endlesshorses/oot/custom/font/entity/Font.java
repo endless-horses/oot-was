@@ -23,8 +23,4 @@ public class Font {
     private Long price;
     @Column(nullable = false)
     private String imageUrl;
-
-//	@OneToMany(mappedBy = "font") //읽기만 가능
-//	private List<Result> results = new ArrayList<>();
-
 }

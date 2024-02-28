@@ -10,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Result", description = "타이어 커스텀 결과물 관련 API")
@@ -28,16 +26,7 @@ public class ResultController {
             @ApiResponse(responseCode = "404", description = "결과물을 찾을 수 없음, 주어진 id에 해당하는 결과물이 없는 경우"),
             @ApiResponse(responseCode = "500", description = "서버 내부 오류"),
     })
-
     public ResponseEntity<ResultResponseDTO> read(@PathVariable String id) {
         return ResponseEntity.ok(resultService.read(id));
-    }
-
-    @GetMapping
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "결과물 목록 조회 성공"),
-    })
-    public List<ResultResponseDTO> read() {
-        return resultService.list();
     }
 }
