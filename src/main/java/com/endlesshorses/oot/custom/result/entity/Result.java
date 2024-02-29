@@ -22,41 +22,43 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Result {
 
-    @Id
-    private String id;
+	@Id
+	private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "PATTERN_ID", nullable = false)
-    private Pattern pattern;
+	@ManyToOne
+	@JoinColumn(name = "PATTERN_ID", nullable = false)
+	private Pattern pattern;
 
-    @ManyToOne
-    @JoinColumn(name = "WHEEL_ID", nullable = false)
-    private Wheel wheel;
+	@ManyToOne
+	@JoinColumn(name = "WHEEL_ID", nullable = false)
+	private Wheel wheel;
 
-    @ManyToOne
-    @JoinColumn(name = "FONT_ID", nullable = false)
-    private Font font;
+	@ManyToOne
+	@JoinColumn(name = "FONT_ID", nullable = false)
+	private Font font;
 
-    @ManyToOne
-    @JoinColumn(name = "FONT_COLOR_ID", nullable = false)
-    private Color color;
+	@ManyToOne
+	@JoinColumn(name = "FONT_COLOR_ID", nullable = false)
+	private Color color;
 
-    @ManyToOne
-    @JoinColumn(name = "ACCESSORY_ID")
-    private Accessory accessory;
+	@ManyToOne
+	@JoinColumn(name = "ACCESSORY_ID")
+	private Accessory accessory;
 
-    @Column(nullable = false)
-    @CreatedDate
-    private LocalDateTime createdAt;
+	@Column(nullable = false)
+	@CreatedDate
+	private LocalDateTime createdAt;
 
-    @Builder
-    public Result(String id, Pattern pattern, Wheel wheel, Font font, Color color, Accessory accessory) {
-        this.id = id;
-        this.pattern = pattern;
-        this.wheel = wheel;
-        this.font = font;
-        this.color = color;
-        this.accessory = accessory;
-        this.createdAt = LocalDateTime.now();
-    }
+	@Builder
+	public Result(String id, Pattern pattern, Wheel wheel, Font font, Color color, Accessory accessory) {
+		this.id = id;
+		this.pattern = pattern;
+		this.wheel = wheel;
+		this.font = font;
+		this.color = color;
+		this.accessory = accessory;
+		this.createdAt = LocalDateTime.now();
+	}
+
+
 }

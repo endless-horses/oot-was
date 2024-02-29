@@ -1,10 +1,9 @@
 package com.endlesshorses.oot.custom.pattern.service;
 
 import com.endlesshorses.oot.custom.pattern.dto.PatternListResponseDto;
+import com.endlesshorses.oot.custom.pattern.entity.Pattern;
 import com.endlesshorses.oot.custom.pattern.repository.PatternRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,5 +23,9 @@ public class PatternService {
 				.collect(Collectors.toList());
 	}
 
+	public Pattern read(Long id) {
+		return patternRepository.findById(id).orElseThrow();
 
+	}
 }
+

@@ -1,6 +1,7 @@
 package com.endlesshorses.oot.custom.color.service;
 
 import com.endlesshorses.oot.custom.color.dto.ColorListResponseDto;
+import com.endlesshorses.oot.custom.color.entity.Color;
 import com.endlesshorses.oot.custom.color.repository.ColorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,4 +22,7 @@ public class ColorService {
 				.collect(Collectors.toList());
 	}
 
+	public Color read(Long id) {
+		return colorRepository.findById(id).orElseThrow();
+	}
 }
